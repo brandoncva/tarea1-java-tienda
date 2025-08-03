@@ -9,31 +9,31 @@ public class Main {
                 boolean salir = false;
 
                 do {
-                    System.out.println("\n=== MENÚ DE LA TIENDA ===");
+                    System.out.println("\n=== MENU DE LA TIENDA ===");
                     System.out.println("1. Ver productos disponibles");
                     System.out.println("2. Agregar producto al carrito");
                     System.out.println("3. Ver carrito y total a pagar");
                     System.out.println("4. Salir");
-                    System.out.print("Seleccione una opción: ");
+                    System.out.print("Seleccione una opcion: ");
 
                     opcion = scanner.nextInt();
 
                     switch (opcion) {
                         case 1:
-                            System.out.println("\nPróximamente: Lista de productos");
+                            System.out.println("\nProximamente: Lista de productos");
                             break;
                         case 2:
-                            System.out.println("\nPróximamente: Agregar productos");
+                            System.out.println("\nProximamente: Agregar productos");
                             break;
                         case 3:
-                            System.out.println("\nPróximamente: Ver carrito");
+                            System.out.println("\nProximamente: Ver carrito");
                             break;
                         case 4:
                             salir = true;
-                            System.out.println("¡Hasta pronto!");
+                            System.out.println("Hasta pronto!");
                             break;
                         default:
-                            System.out.println("Opción inválida");
+                            System.out.println("Opcion invalida");
                     }
                 } while (!salir);
 
