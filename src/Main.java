@@ -38,5 +38,32 @@ public class Main {
                 } while (!salir);
 
                 scanner.close();
+
+                        // Nuevo: Arreglos de productos
+                        String[] productos = {"Laptop", "Teléfono", "Tablet", "Auriculares", "Cargador"};
+                        double[] precios = {1200.99, 599.50, 299.99, 89.99, 19.99};
+
+                        // [Resto del código anterior...]
+
+                        switch (opcion) {
+                            case 1:
+                                System.out.println("\n--- PRODUCTOS DISPONIBLES ---");
+                                for (int i = 0; i < productos.length; i++) {
+                                    System.out.printf("%d. %s - $%.2f%n", (i+1), productos[i], precios[i]);
+                                }
+                                break;
+                            case 2:
+                                System.out.println("\nSeleccione producto (1-5): ");
+                                int seleccion = scanner.nextInt();
+                                if (seleccion >= 1 && seleccion <= productos.length) {
+                                    System.out.println("Agregado: " + productos[seleccion-1]);
+                                } else {
+                                    System.out.println("Selección inválida!");
+                                }
+                                break;
+                            // [Resto de casos...]
+                        }
+                        // [Resto del código...]
+                    }
             }
-        }
+        
