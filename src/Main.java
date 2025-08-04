@@ -6,9 +6,14 @@ public class Main {
         int opcion;
         boolean salir = false;
 
-        // Nuevo: Arreglos de productos y precios (Segundo avance)
-        String[] productos = {"Laptop", "Teléfono", "Tablet", "Auriculares", "Cargador"};
+        // Arreglos de productos y precios
+        String[] productos = {"Laptop", "Telefono", "Tablet", "Auriculares", "Cargador"};
         double[] precios = {1200.99, 599.50, 299.99, 89.99, 19.99};
+
+        // Nuevo: Carrito de compras (Tercer avance)
+        String[] carrito = new String[10];
+        double[] preciosCarrito = new double[10];
+        int contadorCarrito = 0;
 
         do {
             System.out.println("\n=== MENU DE LA TIENDA ===");
@@ -16,13 +21,12 @@ public class Main {
             System.out.println("2. Agregar producto al carrito");
             System.out.println("3. Ver carrito y total a pagar");
             System.out.println("4. Salir");
-            System.out.print("Seleccione una opción: ");
+            System.out.print("Seleccione una opcion: ");
 
             opcion = scanner.nextInt();
 
             switch (opcion) {
                 case 1:
-                    // Nuevo: Mostrar productos con for (Segundo avance)
                     System.out.println("\n--- PRODUCTOS DISPONIBLES ---");
                     for (int i = 0; i < productos.length; i++) {
                         System.out.printf("%d. %s - $%.2f%n", (i+1), productos[i], precios[i]);
@@ -30,23 +34,40 @@ public class Main {
                     break;
 
                 case 2:
-                    // Nuevo: Logica para seleccionar productos (Segundo avance)
                     System.out.println("\n--- AGREGAR PRODUCTO ---");
-                    System.out.println("Seleccione el número del producto:");
+                    System.out.println("Seleccione el numero del producto:");
                     for (int i = 0; i < productos.length; i++) {
                         System.out.printf("%d. %s - $%.2f%n", (i+1), productos[i], precios[i]);
                     }
                     int seleccion = scanner.nextInt();
 
                     if (seleccion >= 1 && seleccion <= productos.length) {
-                        System.out.println(" Producto agregado: " + productos[seleccion-1]);
+                        if (contadorCarrito < carrito.length) {
+                            carrito[contadorCarrito] = productos[seleccion-1];
+                            preciosCarrito[contadorCarrito] = precios[seleccion-1];
+                            contadorCarrito++;
+                            System.out.println(" Producto agregado: " + productos[seleccion-1]);
+                        } else {
+                            System.out.println(" Carrito lleno (max 10 productos)");
+                        }
                     } else {
-                        System.out.println(" Selección inválida");
+                        System.out.println(" Seleccion invalida");
                     }
                     break;
 
                 case 3:
-                    System.out.println("\n--- CARRITO (Proximo avance) ---");
+                    // Nuevo: Mostrar carrito y total (Tercer avance)
+                    System.out.println("\n--- CARRITO DE COMPRAS ---");
+                    if (contadorCarrito == 0) {
+                        System.out.println("🚫 Carrito vacio");
+                    } else {
+                        double total = 0;
+                        for (int i = 0; i < contadorCarrito; i++) {
+                            System.out.printf("%d. %s - $%.2f%n", (i+1), carrito[i], preciosCarrito[i]);
+                            total += preciosCarrito[i];
+                        }
+                        System.out.printf("TOTAL A PAGAR: $%.2f%n", total);
+                    }
                     break;
 
                 case 4:
