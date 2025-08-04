@@ -59,7 +59,7 @@ public class Main {
                     // Nuevo: Mostrar carrito y total (Tercer avance)
                     System.out.println("\n--- CARRITO DE COMPRAS ---");
                     if (contadorCarrito == 0) {
-                        System.out.println("🚫 Carrito vacio");
+                        System.out.println("Carrito vacio");
                     } else {
                         double total = 0;
                         for (int i = 0; i < contadorCarrito; i++) {
@@ -72,7 +72,7 @@ public class Main {
 
                 case 4:
                     salir = true;
-                    System.out.println("Hasta pronto! 👋");
+                    System.out.println("Hasta pronto!");
                     break;
 
                 default:
